@@ -3,6 +3,7 @@ import (
     "log"
     "pku/mpk"
     "unsafe"
+    "fmt"
 )
 
 func main() {
@@ -21,7 +22,7 @@ func main() {
     err = mpk.PkeyMprotect(
         alignedAddr,
         1<<12,          // Page size (typically 4096 bytes or 4KiB)
-        mpk.SysProtRead, // Set to read-only
+        mpk.SysProtR, // Set to read-only
         pkey,           // Use the allocated key
     )
     if err != nil {
